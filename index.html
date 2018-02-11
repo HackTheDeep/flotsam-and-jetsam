@@ -2,13 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>HACKARTO.js</title>
+    <title>Flotsam and Jetsam</title>
     <!-- Include Leaflet 1.2.0 Library -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
     <!-- Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">    
+    <link href='https://fonts.googleapis.com/css?family=Oswald:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">    
     <!-- Include cartodb.js Library -->
     <script src="https://cdn.rawgit.com/CartoDB/cartodb.js/@4.0.0-alpha.28/carto.js"></script>
     <style>
@@ -16,23 +16,20 @@
       #timeline {
         background: white;
         position: absolute;
-        left: 10px;
+        left: 25%;
         padding: 15px;
         bottom: 10px;
         height: 30px;
-        width: 350px;
+        width: 600px;
         display: flex;
         align-items: center;
         z-index: 1000000;
-
-        background-image: url('https://i.imgur.com/SmQkqXx.png');
-        background-repeat:repeat;
         
         border-style: solid;
-        border-width: 3px;
+        border-width: 1px;
         border-color: #381a00;
 
-        font-family: 'Pacifico', cursive;
+        font-family: 'Oswald', cursive;
         font-size: x-large;
         color: #381a00;
       }
@@ -60,7 +57,7 @@
 
         .leaflet-popup-content-wrapper .leaflet-popup-content {
             background: #fff3e8;
-            font-family: 'Pacifico', cursive;
+            font-family: 'Oswald', cursive;
             font-size: medium;
             color: #381a00;
         }
@@ -71,14 +68,10 @@
 
         #map {
             border-style: solid;
-            border-width: 3px;
+            border-width: 1px;
             border-color: #381a00;
         }
 
-        #container {
-          background-image: url('https://i.imgur.com/SmQkqXx.png');
-            background-repeat:repeat;
-        }
     </style>
   </head>
   <body>
@@ -132,7 +125,7 @@
 
       // 1. Setting up the Leaflet Map
       var map = L.map('map').setView([38, 145], 6);
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png', {
         maxZoom: 18,
         attribution: '&copy;<a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy;<a href="https://carto.com/attribution">CARTO</a>'
         }).addTo(map);
@@ -162,7 +155,7 @@
 }
       `);
       var countries = new carto.layer.Layer(source, style, {
-        featureOverColumns: ['lat', 'lon']
+        featureOverColumns: ['magnitude', 'angle']
       });
 
       client.addLayer(countries);
@@ -173,7 +166,7 @@
       var popup = L.popup();
         countries.on('featureOver', function (featureEvent) {
           popup.setLatLng(featureEvent.latLng);
-          popup.setContent(`Latitude: ${Math.round(featureEvent.data.lat)} \n Longitude: ${Math.round(featureEvent.data.lon)}`);
+          popup.setContent(`Magnitude: ${Math.round(100*featureEvent.data.magnitude)/100} \n Angle: ${Math.round(featureEvent.data.angle)} degrees`);
           popup.openOn(map);
       });
       countries.on('featureOut', function (featureEvent) {
