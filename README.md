@@ -19,7 +19,7 @@ Challenge: find-the-plastic-flow
 ![](https://photos-4.dropbox.com/t/2/AAAYYuVR80tpTiDbv2zJGXxVJ7udmeqW-fDVBiUygpRH_g/12/1808723/png/32x32/1/_/1/2/Screenshot%202018-02-11%2012.07.55.png/EMPcugEYzuTELSAHKAc/FPwFjMo4guZkuVKsrRdueL4oeG_C5y5cI6OvdCYaJiI?preserve_transparency=1&size=2048x1536&size_mode=3)
 
 
-
+![gif](https://j.gifs.com/32Jg99.gif)
 
 ![](logo.gif)
 
