@@ -17,3 +17,6 @@ Challenge: find-the-plastic-flow
 
 
 ![](logo.gif)
+
+![plastics](https://j.gifs.com/6RVwr9.gif)
+
