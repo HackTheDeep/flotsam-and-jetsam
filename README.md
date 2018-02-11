@@ -21,7 +21,7 @@ Challenge: find-the-plastic-flow
 
 [CARTO map](https://team.carto.com/u/michellemho-carto/builder/23993a7a-8a36-4660-9c40-e32259f03701/embed)
 
-[link to website](https://goo.gl/fzT2x7)
+[link to website](https://hackthedeep.github.io/flotsam-and-jetsam/)
 
 ![](logo.gif)
 
