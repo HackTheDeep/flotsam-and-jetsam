@@ -44,26 +44,26 @@
       }
 
       html { box-sizing:border-box; height:100%; }
-      body { background:#f2f6f9; height:100%; font-family:"Open sans", Helvetica, Arial, sans-serif; }
-      #container { display:flex; width:100%; height:100%; background: #fff3e8;}
+      body { background: lightgray; height:100%; font-family:"Open sans", Helvetica, Arial, sans-serif; }
+      #container { display:flex; width:100%; height:100%; background: black;}
       #map { flex:1; margin:10px; }
       #widgets { width:300px; margin:10px 10px 10px 0; }
       .widget { background:white; padding:10px; margin-bottom:10px; }
       .widget h1 { font-size:1.2em; }      
 
         .leaflet-popup-content-wrapper {
-            background: #fff3e8
+            background: lightgray
         }
 
         .leaflet-popup-content-wrapper .leaflet-popup-content {
-            background: #fff3e8;
+            background: lightgray;
             font-family: 'Oswald', cursive;
             font-size: medium;
             color: #381a00;
         }
 
         .leaflet-popup-tip {
-            background: #fff3e8;
+            background: lightgray;
         }
 
         #map {
@@ -166,7 +166,7 @@
       var popup = L.popup();
         countries.on('featureOver', function (featureEvent) {
           popup.setLatLng(featureEvent.latLng);
-          popup.setContent(`Magnitude: ${Math.round(100*featureEvent.data.magnitude)/100} \n Angle: ${Math.round(featureEvent.data.angle)} degrees`);
+          popup.setContent(`Magnitude: ${Math.round(100*featureEvent.data.magnitude)/100} m/s \n Angle: ${Math.round(featureEvent.data.angle)} degrees`);
           popup.openOn(map);
       });
       countries.on('featureOut', function (featureEvent) {
