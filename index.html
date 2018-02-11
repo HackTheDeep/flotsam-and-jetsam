@@ -118,7 +118,7 @@
       }
       
       function updateDate (e) {
-        dateValue.innerHTML = input_date().getFullYear();
+        dateValue.innerHTML = input_date();
       }
 
       var source = new carto.source.SQL(countries_at());
@@ -183,14 +183,15 @@
       // 4 Creating a TimeSeries widget
       // 4.1 Defining a TimeSeries dataview, the second parameter is the column we want to aggregate.
       var timeSeries = new carto.dataview.TimeSeries(fullDataset, 'date', {
-        aggregation: carto.dataview.timeAggregation.AUTO
+        aggregation: 'day' 
       });
 
       // 4.2 Listening to data changes on the dataview
       timeSeries.on('dataChanged', function (newData) {
         timeSeriesData = newData;
-        timeSlider.min = 0;
-        timeSlider.max = newData.bins.length;
+        timeSlider.min = 1;
+        timeSlider.max = 25;
+        console.log(timeSlider.max)
         updateDate();
       });
 
